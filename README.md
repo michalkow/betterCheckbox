@@ -126,6 +126,7 @@ If you don't want to style checkbox yourself, or you are looking for some specif
 [jQuery checkbox](http://widowmaker.kiev.ua/checkbox/)
 
 [iOS Checkboxes](http://ios-checkboxes.awardwinningfjords.com/)
+
 [Niceforms](http://www.emblematiq.com/lab/niceforms/demo/niceforms.html)
 
 [jQuery Fancy Custom Radio-button and Checkbox](http://blogs.digitss.com/javascript/jquery-javascript/jquery-fancy-custom-radio-and-checkbox/)
