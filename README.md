@@ -118,16 +118,22 @@ Methods
 Other checkbox plugins
 -------
 If you don't want to style checkbox yourself, or you are looking for some specific look, try those plugins:
+
 [Fancy checkboxes and radio buttons](http://webdesign.maratz.com/lab/fancy-checkboxes-and-radio-buttons/demo.html)
+
 [jqTransform](http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/)
+
 [jQuery checkbox](http://widowmaker.kiev.ua/checkbox/)
+
 [iOS Checkboxes](http://ios-checkboxes.awardwinningfjords.com/)
 [Niceforms](http://www.emblematiq.com/lab/niceforms/demo/niceforms.html)
+
 [jQuery Fancy Custom Radio-button and Checkbox](http://blogs.digitss.com/javascript/jquery-javascript/jquery-fancy-custom-radio-and-checkbox/)
+
 
 Coming Soon
 -------
-betterRadio
+- betterRadio
 				
 License
 -------
