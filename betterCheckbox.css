@@ -1,0 +1,24 @@
+.betterCheckbox-box{
+	width:18px;
+	height:18px;
+	border: 3px solid #333333;
+	display: inline-block;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.betterCheckbox-tick{
+	width:18px;
+	height:18px;
+	background: url('checkmark.png');
+}
+
+.betterCheckbox-box.disabled{
+	border: 3px solid #898989;
+	background:#ededed;
+}
+
+.betterCheckbox-tick.disabled{
+	background: url('checkmark-disabled.png');
+}

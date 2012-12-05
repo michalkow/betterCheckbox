@@ -1,0 +1,275 @@
+﻿<html>
+<head>
+<title>betterCheckbox.js</title>
+	<style>
+		label {
+			font-size: 18px;
+			margin-left:10px;	
+		}
+		
+		.example {
+			padding-bottom:10px;
+		}
+		
+		.ab {
+			width:18px;
+			height:18px;
+			border: 3px dashed #666666;
+			display: inline-block;
+			cursor:pointer;
+			color: #9b0e0e;
+			position:relative;
+		}
+
+		.at {
+			font-size: 26px;
+			font-family: verdana;
+			position:relative;
+			top:-10px;
+			left:1px;
+			position:absolute;
+		}
+
+		.ab.disabled {
+			border: 3px dashed #898989;
+			background:#ededed;
+		}
+
+		.at.disabled {
+			color: #898989;
+		}
+		
+		.bb {
+			width:100px;
+			height:18px;
+			border: 3px dotted #666666;
+			display: inline-block;
+			cursor:pointer;
+			color: #9b0e0e;
+			position:relative;
+		}
+
+		.bt {
+			width:100px;
+			font-size: 18px;
+			font-family: verdana;
+			position:relative;
+			top:-5px;
+			text-align:center;
+			border: 2px solid #9b0e0e;
+			-moz-transform: rotate(-5deg);
+			-webkit-transform: rotate(-5deg);
+			-o-transform: rotate(-5deg);
+			-ms-transform: rotate(-5deg);
+			transform: rotate(-5deg);
+			position:absolute;
+		}
+
+		.bb.disabled {
+			border: 3px dotted #898989;
+			background:#ededed;
+		}
+
+		.bt.disabled {
+			color: #898989;
+			border: 2px solid #898989;
+		}
+		
+		.cb {
+			width:18px;
+			height:18px;
+			border: 3px solid #333333;
+			display: inline-block;
+			cursor:pointer;
+			color: #9b0e0e;
+			-webkit-border-radius: 14px;
+			border-radius: 14px;
+			position:relative;
+		}
+
+		.ct {
+			background: #333333;
+			width:14px;
+			height:14px;
+			margin-top:2px;
+			margin-left:2px;
+			-webkit-border-radius: 14px;
+			border-radius: 14px;
+			position:absolute;
+		}
+
+		.cb.disabled {
+			border: 3px solid #898989;
+			background:#ededed;
+		}
+
+		.ct.disabled {
+			background: #898989;
+		}
+		
+		.db {
+			width:18px;
+			height:18px;
+			border: 3px solid #333333;
+			display: inline-block;
+			cursor:pointer;
+			color: #9b0e0e;
+			position:relative;
+		}
+
+		.dt {
+			background: #3cdd4b;
+			width:18px;
+			height:18px;
+			position:absolute;
+		}
+
+		.db.disabled {
+			border: 3px solid #898989;
+		}
+
+		.dt.disabled {
+			background: #97c99c;
+		}
+		
+		.eb {
+			width:10px;
+			height:10px;
+			border: 1px solid #666666;
+			display: inline-block;
+			cursor:pointer;
+			color: #9b0e0e;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			background: #c5deea; /* Old browsers */
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzVkZWVhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMzElIiBzdG9wLWNvbG9yPSIjOGFiYmQ3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2NmRhYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+			background: -moz-linear-gradient(-45deg,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#c5deea), color-stop(31%,#8abbd7), color-stop(100%,#066dab)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(-45deg,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(-45deg,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(-45deg,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* IE10+ */
+			background: linear-gradient(135deg,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+			position:relative;
+		}
+
+		.et {
+		font-size: 28px;
+			position:relative;
+			top: -16px;
+			left:-1px;
+			color:#9b0e0e;
+			position:absolute;
+		}
+
+		.eb.disabled {
+			background:#999999;
+		}
+
+		.et.disabled {
+			color: #898989;
+		}
+		
+		.fb {
+			width:17px;
+			height:17px;
+			border: 1px solid white;
+			outline: 2px solid #8e8f8f;
+			-webkit-outline: 1px solid darkblue;
+			display: inline-block;
+			cursor:pointer;
+			background: #aeb3b9; /* Old browsers */
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYWViM2I5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZjlmOWY5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5ZTllYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+			background: -moz-linear-gradient(-45deg,  #aeb3b9 0%, #f9f9f9 50%, #e9e9ea 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#aeb3b9), color-stop(50%,#f9f9f9), color-stop(100%,#e9e9ea)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(-45deg,  #aeb3b9 0%,#f9f9f9 50%,#e9e9ea 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(-45deg,  #aeb3b9 0%,#f9f9f9 50%,#e9e9ea 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(-45deg,  #aeb3b9 0%,#f9f9f9 50%,#e9e9ea 100%); /* IE10+ */
+			background: linear-gradient(135deg,  #aeb3b9 0%,#f9f9f9 50%,#e9e9ea 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeb3b9', endColorstr='#e9e9ea',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+			position:relative;
+		}
+
+		.ft {
+			font-size:19px;
+			color:#495e96;
+			position:absolute;
+			top:-1px;
+		}
+
+		.fb.disabled {
+			outline: 2px solid #b1b1b1;
+			-webkit-outline: 2px solid #b1b1b1;
+			border: 1px solid #f0f0f0;
+			background: #f0f0f0;
+		}
+
+		.ft.disabled {
+			color: #bdbdbd;
+		}
+	</style>
+	<link href="betterCheckbox.css" type="text/css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="betterCheckbox.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function(){ 
+		$('#default').betterCheckbox();
+		$('#default-dis').betterCheckbox();
+		$('#default-dis').betterCheckbox('disable');
+		
+		$('#a').betterCheckbox({boxClass: 'ab', tickClass: 'at', tickInnerHTML: "x"});
+		$('#a-dis').betterCheckbox({boxClass: 'ab', tickClass: 'at', tickInnerHTML: "x"});
+		$('#a-dis').betterCheckbox('disable');
+		
+		$('#b').betterCheckbox({boxClass: 'bb', tickClass: 'bt', tickInnerHTML: "approved"});
+		$('#b-dis').betterCheckbox({boxClass: 'bb', tickClass: 'bt', tickInnerHTML: "approved"});
+		$('#b-dis').betterCheckbox('disable');
+		
+		$('#c').betterCheckbox({boxClass: 'cb', tickClass: 'ct'});
+		$('#c-dis').betterCheckbox({boxClass: 'cb', tickClass: 'ct'});
+		$('#c-dis').betterCheckbox('disable');
+		
+		$('#d').betterCheckbox({boxClass: 'db', tickClass: 'dt'});
+		$('#d-dis').betterCheckbox({boxClass: 'db', tickClass: 'dt'});
+		$('#d-dis').betterCheckbox('disable');
+		
+		$('#e').betterCheckbox({boxClass: 'eb', tickClass: 'et', tickInnerHTML: "✓"});
+		$('#e-dis').betterCheckbox({boxClass: 'eb', tickClass: 'et', tickInnerHTML: "✓"});
+		$('#e-dis').betterCheckbox('disable');
+		
+		$('#f').betterCheckbox({boxClass: 'fb', tickClass: 'ft', tickInnerHTML: "✔"});
+		$('#f-dis').betterCheckbox({boxClass: 'fb', tickClass: 'ft', tickInnerHTML: "✔"});
+		$('#f-dis').betterCheckbox('disable');
+	});
+	</script>
+</head>
+<body>
+<div style="width: 960px; margin-left:auto; margin-right: auto;">
+	<h1>betterCheckbox examples</h1>
+	<h2>default:</h2>
+	<div class="example"><input id="default" checked="checked" type="checkbox" name="default" value="default"> <label for="default">Enabled</label></div>
+	<div class="example"><input id="default-dis" checked="checked" type="checkbox" disabled="disabled"  name="default" value="default"> <label for="default">Disabled</label></div>
+	<h2>dashed:</h2>
+	<div class="example"><input id="a" checked="checked" type="checkbox" name="a" value="a"> <label for="a">Enabled</label></div>
+	<div class="example"><input id="a-dis" checked="checked" type="checkbox" disabled="disabled"  name="a" value="a"> <label for="a-dis">Disabled</label></div>
+	<h2>stamp:</h2>
+	<div class="example"><input id="b" checked="checked" type="checkbox" name="b" value="b"> <label for="b">Enabled</label></div>
+	<div class="example"><input id="b-dis" checked="checked" type="checkbox" disabled="disabled"  name="b" value="b"> <label for="b-dis">Disabled</label></div>
+	<h2>round:</h2>
+	<div class="example"><input id="c" checked="checked" type="checkbox" name="c" value="c"> <label for="c">Enabled</label></div>
+	<div class="example"><input id="c-dis" checked="checked" type="checkbox" disabled="disabled"  name="c" value="c"> <label for="c-dis">Disabled</label></div>
+	<h2>square:</h2>
+	<div class="example"><input id="d" checked="checked" type="checkbox" name="d" value="d"> <label for="d">Enabled</label></div>
+	<div class="example"><input id="d-dis" checked="checked" type="checkbox" disabled="disabled"  name="d" value="d"> <label for="d-dis">Disabled</label></div>
+	<h2>slim:</h2>
+	<div class="example"><input id="e" checked="checked" type="checkbox" name="e" value="e"> <label for="e">Enabled</label></div>
+	<div class="example"><input id="e-dis" checked="checked" type="checkbox" disabled="disabled"  name="e" value="e"> <label for="e-dis">Disabled</label></div>
+	<h2>retro:</h2>
+	<div class="example"><input id="f" checked="checked" type="checkbox" name="f" value="f"> <label for="f">Enabled</label></div>
+	<div class="example"><input id="f-dis" checked="checked" type="checkbox" disabled="disabled"  name="f" value="f"> <label for="f-dis">Disabled</label></div>
+	
+</div>
+</body>
+</html>
