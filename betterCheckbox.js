@@ -47,6 +47,18 @@
 					}
 				}
 			});		
+			
+			$this.on('change', function() {
+					if(!root.checked) {
+						$this.next().empty();
+						root.checked = false;
+						$this.prop('checked', false);
+					} else {
+						$this.next().append('<div class="'+settings.tickClass+'">'+settings.tickInnerHTML+'</div>');
+						root.checked = true;
+						$this.prop('checked', true);
+					}
+			});		
 			return this;				
        });
     },
